@@ -1,0 +1,16 @@
+﻿{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/res/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9000
+        }
+      ],
+      "UpstreamPathTemplate": "/r/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ]
+}
