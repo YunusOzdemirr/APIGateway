@@ -6,8 +6,10 @@ services:
     build:
       context: .
       dockerfile: Contact.API/Dockerfile
-      ports: - 7000:7000
-      networks: - int_net
+      ports:
+        - 7001:7001
+      networks:
+        - int_net
       
 
   apigateway:
@@ -15,8 +17,11 @@ services:
     build:
       context: .
       dockerfile: APIGateway/Dockerfile
-      ports: -80:80
-      networks: - micro_net
+      ports:
+         -80:80
+      networks:
+        - micro_net
+        - int_net
 
 
   reservationapi:
@@ -24,15 +29,17 @@ services:
     build:
       context: .
       dockerfile: ReservationAPI/Dockerfile
-      ports: - 9000:9000
-      networks: - int_net
+      ports:
+         - 9000:9000
+      networks:
+            - int_net
 
 
 
 
     networks:
         int_net:
-            driver:overlay
-            internal:true
+            driver: overlay
+            internal: true
         micro_net:
-            driver:bridge
+            driver: bridge

@@ -1,15 +1,32 @@
 ﻿{
   "Routes": [
     {
+      //gateway yolu buradan download ediyor.
       "DownstreamPathTemplate": "/api/res/{id}",
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
+          "Host": "reservationapi",
           "Port": 9000
         }
       ],
+      //gateway'den istek yaparken bunu kullanıyoruz.
       "UpstreamPathTemplate": "/r/{id}",
+      "UpstreamHttpMethod": [ "Get" ]
+    },
+    {
+      //gateway yolu buradan download ediyor
+      "DownstreamPathTemplate": "/api/contacts/{id}",
+      "DownstreamScheme": "https",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "contact.api",
+          "Port": 7001
+        }
+      ],
+      //gateway veriyi upload ederken burayı kullanıyor
+      //gateway'den istek yaparken bunu kullanıyoruz.
+      "UpstreamPathTemplate": "/c/{id}",
       "UpstreamHttpMethod": [ "Get" ]
     }
   ]

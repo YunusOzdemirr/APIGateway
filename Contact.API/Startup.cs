@@ -40,7 +40,7 @@ namespace Contact.API
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
             app.UseMiddleware<ExceptionMiddleware>();
             app.UseRouting();
 
