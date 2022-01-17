@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Contact.API.Concrete;
+using Contact.API.Middlewares;
 using Contact.API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,7 +41,7 @@ namespace Contact.API
             }
 
             app.UseHttpsRedirection();
-
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseRouting();
 
             app.UseAuthorization();
